@@ -2,10 +2,11 @@ package br.com.ceres.model.dao;
 
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.DetachedCriteria;
 
-public class HibernateDAO<T> implements InterfaceDAO<T>, Serializable{
+public class HibernateDAO<T> implements InterfaceDAO<T>, Serializable {
 
     private static final long serialVersionUID = 1L;
     
@@ -19,7 +20,6 @@ public class HibernateDAO<T> implements InterfaceDAO<T>, Serializable{
     }
     
     
-    
     @Override
     public void save(T entity) {
         session.save(entity);
@@ -31,7 +31,7 @@ public class HibernateDAO<T> implements InterfaceDAO<T>, Serializable{
     }
 
     @Override
-    public void delete(T entity) {
+    public void remove(T entity) {
         session.delete(entity);
     }
 
@@ -52,15 +52,22 @@ public class HibernateDAO<T> implements InterfaceDAO<T>, Serializable{
         return entity;
     }
 
+        
+    @Override
+    public T getEntityByHQLQuery(String stringQuery) {
+        Query query = session.createQuery(stringQuery);        
+        return (T) query.uniqueResult();
+    }
+
     @Override
     public List<T> getListByDetachedCriteria(DetachedCriteria criteria) {
         return criteria.getExecutableCriteria(session).list();
     }
-     
+    
     @Override
     public List<T> getEntities() {
-        List<T> entities = (List<T>) session.createCriteria(classe).list();
-        return entities;
-    }
-
+        List<T> enties = (List<T>) session.createCriteria(classe).list();
+        return enties;
+    }    
+    
 }

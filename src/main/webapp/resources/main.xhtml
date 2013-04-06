@@ -11,8 +11,8 @@
           <h:head>
         <title>Ceres - Sistema de Vendas  </title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link href="../resources/restrict/css/ceres.css" rel="stylesheet" type="text/css" />
-        <link href="../resources/restrict/images/hamburger.ico" rel="shortcut icon" type="image/x-icon" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/restrict/css/ceres.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/restrict/images/hamburger.ico" rel="shortcut icon" type="image/x-icon" />
     </h:head>
 
     <h:body>
@@ -26,13 +26,13 @@
         </div>
 
         <!-- Menu ########################################## Menu-->
-        <!--        <div id="menu">
+        <div id="menu">
                     <h:form>    
                         <p:menubar styleClass="labelmenu">
-        
+                             <p:menuitem value="Pessoas" url="/restrict/cadastrarpessoa.faces"/>
                         </p:menubar> 
                     </h:form>           
-                </div>-->
+        </div>
 
         <!-- Menu ########################################## Menu -->
 

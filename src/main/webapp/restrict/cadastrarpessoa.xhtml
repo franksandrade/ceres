@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="./../resources/main.xhtml">
+
+    <ui:define name="tarefas">
+        <p:fieldset legend="Cadastrar Pessoa">
+            <br/>
+            <p:tabView id="tbv1" dynamic="true" cache="true">
+
+                <p:tab id="tab1" title="Pessoa">  
+                    <h:form prependId="false" id="formPessoa">
+                        <p:growl id="msg0">
+                            <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid0" >
+                              
+                               <h:outputLabel/> 
+                               <h:inputHidden id="idPessoa" value="#{mbPessoa.epessoa.id}"/>
+                                
+                                <h:outputLabel for="telefone" value="Telefone"/>
+                                <p:inputText id="telefone" size="40" value="#{mbPessoa.epessoa.telefone}" 
+                                             onkeyup="this.value = this.value.toUpperCase()" required="true"
+                                             requiredMessage="O campo [Telefone] é obrigatorio."/>
+                                <p:panel>
+                                    <p:commandButton value="Salvar" action="#{mbPessoa.addPessoa}" 
+                                                     image="ui-icon ui-icon-disk" update="@form :formtable"/>
+                                    <p:commandButton value="Cancelar" actionListener="#{mbPessoa.limpPessoa}"
+                                                     image="ui-icon ui-icon-close" update="@form"/>
+                                    
+                                </p:panel>
+                            </h:panelGrid>
+
+                        </p:growl>
+
+                    </h:form>
+                </p:tab>  
+            </p:tabView>
+            
+            <h:form id="formtable">
+                <p:growl id="msg1"/>
+                <p:dataTable id="idTabela" var="epessoa" value="#{mbPessoa.epessoas}" 
+                             paginator="true" rows="10" emptyMessage="Nenhum registro encontrado"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink}
+                             {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="5,10,15">
+                    <f:facet name="header"> Lista de Pessoas</f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Telefone"/>
+                        </f:facet>
+                        <h:outputText value="#{epessoa.telefone}" />
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+            
+            
+
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>

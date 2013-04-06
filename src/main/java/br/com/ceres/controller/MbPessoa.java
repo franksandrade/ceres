@@ -5,6 +5,7 @@ import br.com.ceres.model.dao.InterfaceDAO;
 import br.com.ceres.model.entities.Epadrao;
 import br.com.ceres.model.entities.Epessoa;
 import br.com.ceres.util.FacesContextUtil;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -15,7 +16,9 @@ import javax.faces.context.FacesContext;
 public class MbPessoa extends Epadrao {
 
     private static final long serialVersionUID = 1L;
+    
     private Epessoa epessoa = new Epessoa();
+    private List<Epessoa> epessoas;
 
     private InterfaceDAO<Epessoa> epessoaDAO() {
         InterfaceDAO<Epessoa> epessoaDAO = new HibernateDAO<Epessoa>(Epessoa.class, FacesContextUtil.getRequestSession());
@@ -54,7 +57,7 @@ public class MbPessoa extends Epadrao {
     }
     
     public void deletePessoa() {
-        epessoaDAO().delete(epessoa);
+        epessoaDAO().remove(epessoa);
         FacesContext.getCurrentInstance().addMessage(null,
                 new FacesMessage(FacesMessage.SEVERITY_INFO, "Excluido Com Sucesso", ""));
     }
@@ -65,6 +68,15 @@ public class MbPessoa extends Epadrao {
 
     public void setEpessoa(Epessoa epessoa) {
         this.epessoa = epessoa;
+    }
+
+    public List<Epessoa> getEpessoas() {
+        epessoas = epessoaDAO().getEntities();
+        return epessoas;
+    }
+
+    public void setEpessoas(List<Epessoa> epessoas) {
+        this.epessoas = epessoas;
     }
     
     
