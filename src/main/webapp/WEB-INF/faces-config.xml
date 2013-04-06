@@ -5,7 +5,7 @@
               version="2.0">
 
     <lifecycle>
-        <phase-listener>br.com.ceres.util.PhaseListenerSemeru</phase-listener>
+        <phase-listener>br.com.ceres.util.PhaseListenerCeres</phase-listener>
     </lifecycle>
     
 <!--    <factory>

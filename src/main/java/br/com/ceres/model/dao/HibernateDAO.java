@@ -31,7 +31,7 @@ public class HibernateDAO<T> implements InterfaceDAO<T>, Serializable{
     }
 
     @Override
-    public void remove(T entity) {
+    public void delete(T entity) {
         session.delete(entity);
     }
 
