@@ -27,7 +27,7 @@
         
         <!-- HABILITA A ATUALIZAÇÃO AUTOMÁTICA DA ESTRUTURA DE TABELAS PELO HIBERNATE -->
         
-        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.hbm2ddl.auto">none</property>
         
         <!-- CONFIGURAÇÕES DO POOL DE CONEXÕES-->
         
@@ -39,6 +39,7 @@
         
         <!-- LISTA DE ENTIDADES -->
          <mapping class="br.com.ceres.model.entities.Epessoa"/> 
+         <mapping class="br.com.ceres.model.entities.EpessoaFisica"/> 
 <!--        <mapping class="br.com.semeru.model.entities.Cidade"/>        
         <mapping class="br.com.semeru.model.entities.Endereco"/>      
         <mapping class="br.com.semeru.model.entities.Estado"/>      

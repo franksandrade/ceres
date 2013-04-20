@@ -27,13 +27,14 @@
         <param-value>
             /WEB-INF/spring-security.xml
         </param-value>
-    </context-param> 
+    </context-param>  -->
+    
 
-     Configurações do tema do PrimeFaces 
+ <!-- Configurações do tema do PrimeFaces -->
     <context-param>  
         <param-name>primefaces.THEME</param-name>  
-        <param-value>sam</param-value>  
-    </context-param>         -->
+        <param-value>south-street</param-value>  
+    </context-param>       
     
     <!-- Filtros do Spring  -->
 <!--    <listener>
@@ -98,4 +99,5 @@
         <filter-name>PrimeFaces FileUpload Filter</filter-name>  
         <servlet-name>Faces Servlet</servlet-name>  
     </filter-mapping> -->
+    
 </web-app>

@@ -2,18 +2,18 @@ package br.com.ceres.controller;
 
 import br.com.ceres.model.dao.HibernateDAO;
 import br.com.ceres.model.dao.InterfaceDAO;
-import br.com.ceres.model.entities.Epadrao;
 import br.com.ceres.model.entities.Epessoa;
 import br.com.ceres.util.FacesContextUtil;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 @ManagedBean(name = "mbPessoa")
-@SessionScoped
-public class MbPessoa extends Epadrao {
+@RequestScoped
+public class MbPessoa implements Serializable {
 
     private static final long serialVersionUID = 1L;
     

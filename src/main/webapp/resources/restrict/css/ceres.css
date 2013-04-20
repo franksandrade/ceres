@@ -12,8 +12,9 @@ body {
 }
 
 #topo{
-   width:558px;
-   height:279px;
+   
+   width:549px;
+   height:239px;
    margin:0;
    padding:0;
    background-image: url(../images/topo.jpg); 

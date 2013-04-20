@@ -6,7 +6,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:c="http://java.sun.com/jsp/jstl/core"
                 xmlns:p="http://primefaces.org/ui"
-                template="./../resources/main.xhtml">
+                template="../templates/main.xhtml">
 
     <ui:define name="tarefas">
         <p:fieldset legend="Cadastrar Pessoa">
@@ -54,6 +54,23 @@
                         </f:facet>
                         <h:outputText value="#{epessoa.telefone}" />
                     </p:column>
+                    
+                    <p:column>
+                         <f:facet name="header">
+                            <h:outputText value="Ações"/>
+                        </f:facet>
+                        <p:commandButton value="Editar" image="ui-icon ui-icon-pencil"
+                                         process="@this" update=":tbv1:formPessoa">
+                            <f:setPropertyActionListener target="#{mbPessoa.epessoa}"
+                                                         value="#{epessoa}"/>
+                        </p:commandButton>
+                        <p:commandButton value="Remover" action="#{mbPessoa.deletePessoa()}" image="ui-icon ui-icon-close"
+                                        update="@form">
+                            <f:setPropertyActionListener target="#{mbPessoa.epessoa}"
+                                                         value="#{epessoa}"/>
+                        </p:commandButton>
+                    </p:column>
+                    
                 </p:dataTable>
             </h:form>
             

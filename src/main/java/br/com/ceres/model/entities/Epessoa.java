@@ -5,10 +5,13 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "pes_pessoas")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Epessoa implements Serializable{
     
     private static final long serialVersionUID = 1L;
